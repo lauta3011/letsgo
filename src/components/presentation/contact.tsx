@@ -23,10 +23,10 @@ export function GetInTouch() {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",      // Replace with your EmailJS service ID
-        "YOUR_TEMPLATE_ID",     // Replace with your EmailJS template ID
+        "service_wljbbsk",      // Replace with your EmailJS service ID
+        "template_tdvzdgj",
         form.current,
-        "YOUR_PUBLIC_KEY"       // Replace with your EmailJS public key
+        "smM27pWlwXHzxf6un"
       )
       .then(
         () => {
