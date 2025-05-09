@@ -29,7 +29,7 @@ export function DatabasePresentation() {
               Been using relational-databases from the beggining of my career (SQL) but certain freelance jobs I've done needed a serverless structure so I learned how to work with Firebase at first, now Supabase is my way to go when serverless is needed.
             </Typography>
           </div>
-          <img src="code.png" alt="iphone" className="max-w-2xl rounded-3xl hidden md:flex mx-auto" />
+          <img src="logos/databases.png" alt="iphone" className="max-w-2xl rounded-3xl hidden md:flex mx-auto" />
         </div>
       </div>
     </ThemeProvider>

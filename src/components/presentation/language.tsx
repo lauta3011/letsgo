@@ -8,7 +8,7 @@ export function LanguagePresentation() {
  
   return (
     <ThemeProvider>
-      <div className="h-full w-screen place-items-center bg-white py-20">
+      <div className="h-full w-screen place-items-center bg-white px-8 py-20">
         <div className="container mx-auto grid items-center relative lg:grid-cols-2">
           
           <div className="mb-8 lg:text-start text-center">
@@ -30,7 +30,7 @@ export function LanguagePresentation() {
               Since the beggining of my career I've been using Javascript, learned NodeJs after moving on from C# in order to have a full JS ecosystem. Adding Typescript to this knowdledge is the cherry on the cake.
             </Typography>
           </div>
-          <img src="ts-js.jpg" alt="typescriot and javascript" className=" mx-auto hidden md:flex" />
+          <img src="logos/typescript-logo.png" alt="typescriot and javascript" className=" mx-auto hidden md:flex" />
         </div>
       </div>
     </ThemeProvider>

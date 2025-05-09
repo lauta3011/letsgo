@@ -9,5 +9,6 @@ const isProd = process.env.NODE_ENV === "production";
 
 export default defineConfig({
   integrations: [react(), tailwind()],
-  base: "/",
+  site: 'https://lauta3011.github.io',
+  base: '/',
 });

@@ -1,19 +1,10 @@
 import { Typography } from "@material-tailwind/react";
 
-// const logos = [
-//   "oktana",
-//   "habitue",
-//   "mosca",
-//   "globant",
-// ];
-
 const logos = [
-  "microsoft",
-  "cisco",
-  "ibm",
-  "amazons",
-  "salesforce",
-  "vodafone",
+  "oktana",
+  "habitue",
+  "mosca",
+  "globant",
 ];
 
 export function LogoSectionOne() {
@@ -26,13 +17,13 @@ export function LogoSectionOne() {
         >
           Worked on these companies
         </Typography>
-        <div className="flex flex-wrap items-center justify-center gap-8">
+        <div className="flex flex-wrap items-center justify-around gap-8">
           {logos.map((logo, key) => (
             <img
               key={key}
-              src={`logos/logo-${logo}.svg`}
+              src={`logos/${logo}-logo.png`}
               alt="logo"
-              className="w-40"
+              className="w-40 grayscale"
             />
           ))}
         </div>

@@ -10,7 +10,7 @@ export function FrameworksPresentation() {
       <div className="h-full w-screen place-items-center bg-white px-8 py-8">
         <div className="container mx-auto grid items-center relative lg:grid-cols-2">
           <div className="hidden lg:flex">
-            <img src="palette.png" alt="iphone" className="max-w-xl rounded-3xl mx-auto" />
+            <img src="logos/reactsvelte-logo.png" alt="iphone" className="max-w-xl rounded-3xl mx-auto" />
           </div>
           
           <div className="text-center lg:text-left">
