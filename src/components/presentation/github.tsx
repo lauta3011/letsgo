@@ -7,7 +7,7 @@ export function AstroSection() {
       <div className="container mx-auto">
         <Card
           color="red"
-          shadow={false}
+          shadow={true}
           className="flex-col-reverse overflow-hidden rounded-3xl md:flex-row md:gap-8"
         >
           <CardBody className="py-20 px-14 md:w-7/12">

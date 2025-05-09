@@ -38,7 +38,7 @@ export function HeroPresentation() {
               I'm a web dev from Uruguay with 5+ years of experience in the software industry.
             </Typography>
             <div className="mt-12 flex flex-wrap justify-center gap-3 lg:justify-start">
-              <a href="#pricing">
+              <a href="#contact">
                 <Button color="dark" className="flex items-center">
                   Contact me
                 </Button>
