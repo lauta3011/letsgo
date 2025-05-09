@@ -11,22 +11,19 @@ export function AstroSection() {
           className="flex-col-reverse overflow-hidden rounded-3xl md:flex-row md:gap-8"
         >
           <CardBody className="py-20 px-14 md:w-7/12">
-            <Typography color="white" className="font-normal opacity-70">
-              Open Source
-            </Typography>
             <Typography
               variant="h2"
               color="white"
               className="mb-5 font-normal"
             >
-              Let's join forces for a better web!
+              Take a look at my Github!
             </Typography>
             <Typography variant="lead" color="white">
-              AstroLaunch UI is an open source and powerful design system that lets you create Ecommerce websites that your users will love.
+              Here you can see all the works I've done (and can be shared) personal and as freelance.
             </Typography>
-            <a href="https://github.com/creativetimofficial/astro-launch-ui">
+            <a href="https://github.com/lauta3011">
               <Button color="white" size="sm" variant="outlined" className="flex items-center mt-5">
-                Get Started
+                Take me there
               </Button>
             </a>
           </CardBody>

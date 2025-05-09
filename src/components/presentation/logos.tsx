@@ -1,5 +1,12 @@
 import { Typography } from "@material-tailwind/react";
 
+// const logos = [
+//   "oktana",
+//   "habitue",
+//   "mosca",
+//   "globant",
+// ];
+
 const logos = [
   "microsoft",
   "cisco",
@@ -17,7 +24,7 @@ export function LogoSectionOne() {
           color="blue-gray"
           className="text-xl font-extrabold mb-8"
         >
-          Trusted by the best companies
+          Worked on these companies
         </Typography>
         <div className="flex flex-wrap items-center justify-center gap-8">
           {logos.map((logo, key) => (

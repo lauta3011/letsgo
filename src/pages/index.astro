@@ -1,33 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import HeaderPresentation from "../components/presentation/header"
-import FeaturePresentation from "../components/presentation/feature"
 import LogosPresentation from "../components/presentation/logos"
-import DevFreePresentation from "../components/presentation/developerFree"
-import PalettePresentationFree from "../components/presentation/palette"
-import CodePresentation from "../components/presentation/code"
-import FreeToProPresentation from "../components/presentation/freeToPro"
-import AstroPresentation from "../components/presentation/astro"
-import PagesFreePresentation from "../components/presentation/pagesFree"
+import LanguagePresentation from "../components/presentation/language"
+import FrameworksPresentation from "../components/presentation/framework"
+import DatabasePresentation from "../components/presentation/databases"
 import GithubPresentation from "../components/presentation/github"
-import PricingPresentation from "../components/presentation/pricing"
-import FooterFreePresentation from "../components/presentation/footerFree"
-
+import FooterPresentation from "../components/presentation/footer"
+import GetInTouch from "../components/presentation/contact"
 ---
 
-<Layout title="Presentation Page">
+<Layout title="Lautaro Rodriguez">
 	<main>
     <HeaderPresentation client:only="react" />
-    <FeaturePresentation client:only="react" />
     <LogosPresentation client:only="react" />
-    <DevFreePresentation client:only="react" />
-    <PalettePresentationFree client:only="react" />
-    <CodePresentation client:only="react" />
-    <FreeToProPresentation client:only="react" />
-    <AstroPresentation client:only="react" />
-    <PagesFreePresentation client:only="react" />
-    <PricingPresentation client:only="react" />
-    <GithubPresentation client:only="react" />
-    <FooterFreePresentation client:only="react" />
+    <LanguagePresentation client:only="react" />
+    <FrameworksPresentation client:only="react" />
+    <DatabasePresentation client:only="react" />
+    <GithubPresentation client:only="react" /> 
+    <GetInTouch client:only="react" />
+    <FooterPresentation client:only="react" />
   </main>
 </Layout>
