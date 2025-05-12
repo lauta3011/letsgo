@@ -9,7 +9,7 @@ export function HeroPresentation() {
  
   return (
     <ThemeProvider>
-      <header className="h-full w-screen place-items-center bg-white relative px-8 py-8 lg:mb-36">
+      <header className="h-screen w-screen place-items-center bg-white relative px-8 py-8 lg:mb-36">
         <div className="container mx-auto grid items-center lg:grid-cols-2">
           <div className="text-center lg:text-left pt-32">
             <div className="mb-8 inline-flex items-center">

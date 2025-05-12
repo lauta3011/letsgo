@@ -31,7 +31,7 @@ export function GetInTouch() {
     if (!form.current) return;
     emailjs
       .sendForm(
-        "service_wljbbsk",      // Replace with your EmailJS service ID
+        "service_wljbbsk",
         "template_tdvzdgj",
         form.current,
         "smM27pWlwXHzxf6un"
@@ -54,7 +54,7 @@ export function GetInTouch() {
           shadow={false}
           className="overflow-hidden rounded-3xl md:flex-row md:gap-8"
           >
-            <CardBody className="flex-col justify-between py-20 px-14 md:w-11/12">
+            <CardBody className="flex-col justify-between py-20 px-14 w-full">
               <Typography variant="h2" color="blue-gray" className={"py-8"} >
                 Get in touch with me!
               </Typography>
@@ -65,7 +65,7 @@ export function GetInTouch() {
                 <Textarea className="bg-white" name="message" label="Message" required />
                 
                 <div className="flex justify-center w-full">
-                  <Button type="submit" className="w-1/4">
+                  <Button type="submit" className="my-8">
                     Send Message
                   </Button>
                 </div>
