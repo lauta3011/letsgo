@@ -16,7 +16,6 @@ const { title, metaDescription } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={metaDescription} />
     <meta name="generator" content={Astro.generator} />
-    <link rel="canonical" href="https://www.creative-tim.com/astro/" />
   </head>
   <body class="overflow-x-hidden" style="background-color:var(--swiss-meeple)">
     <div class="figures-layer" aria-hidden="true">
@@ -40,10 +39,6 @@ const { title, metaDescription } = Astro.props;
       <slot />
     </div>
   </body>
-  <script
-    src="https://kit.fontawesome.com/349ee9c857.js"
-    crossOrigin="anonymous"
-  ></script>
 </html>
 <style is:global>
   :root {
