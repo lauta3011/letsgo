@@ -19,21 +19,23 @@ const { title, metaDescription } = Astro.props;
   </head>
   <body class="overflow-x-hidden" style="background-color:var(--swiss-meeple)">
     <div class="figures-layer" aria-hidden="true">
-      <svg class="fig figures-building figures-building--one" viewBox="0 0 100 100">
-        <rect x="20" y="0" width="60" height="100" />
-      </svg>
-      <svg class="fig figures-building figures-building--two" viewBox="0 0 100 100">
-        <rect x="20" y="0" width="60" height="100" />
-      </svg>
-      <svg class="fig figures-building figures-building--three"  >
-        <rect x="20" y="0" width="600" height="1000" />
-      </svg>
-      <svg class="fig figures-building figures-building--four" viewBox="0 0 100 100">
-        <rect x="20" y="0" width="60" height="100" />
-      </svg>
-      <svg class="fig figures-building figures-building--five" viewBox="0 0 100 100">
-        <rect x="20" y="0" width="60" height="100" />
-      </svg>
+      <div class="figures-grid">
+        <svg class="fig figures-building figures-building--one" viewBox="0 0 100 100">
+          <rect x="20" y="0" width="60" height="300" />
+        </svg>
+        <svg class="fig figures-building figures-building--two" viewBox="0 0 100 100">
+          <rect x="20" y="0" width="60" height="600" />
+        </svg>
+        <svg class="fig figures-building figures-building--three" >
+          <rect x="20" y="0" width="600" height="1000" />
+        </svg>
+        <svg class="fig figures-building figures-building--four" viewBox="0 0 100 100">
+          <rect x="20" y="0" width="60" height="800" />
+        </svg>
+        <svg class="fig figures-building figures-building--five" viewBox="0 0 100 100">
+          <rect x="20" y="0" width="60" height="600" />
+        </svg>
+      </div>
     </div>
     <div class="page-content">
       <slot />
@@ -62,51 +64,49 @@ const { title, metaDescription } = Astro.props;
     overflow: hidden;
   }
 
+  .figures-grid {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    align-items: end;
+  }
+
   .page-content {
     position: relative;
     z-index: 1;
   }
 
   .fig {
-    position: absolute;
     fill: var(--swiss-olive);
   }
 
   .figures-building {
-    position: absolute;
-    bottom: -8vmin;
+    justify-self: center;
     width: 14vmin;
     height: 46vmin;
     opacity: 0.16;
     animation: figures-rise 14s ease-in-out infinite;
   }
 
-  .figures-building--one {
-    left: 4%;
-  }
-
   .figures-building--two {
-    left: 22%;
     height: 38vmin;
     opacity: 0.1;
     animation-delay: -3s;
   }
 
   .figures-building--three {
-    left: 40%;
     height: 52vmin;
     animation-delay: -6s;
   }
 
   .figures-building--four {
-    left: 58%;
     height: 34vmin;
     opacity: 0.12;
     animation-delay: -9s;
   }
 
   .figures-building--five {
-    left: 76%;
     height: 44vmin;
     animation-delay: -11s;
   }

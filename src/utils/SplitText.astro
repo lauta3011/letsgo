@@ -1,0 +1,88 @@
+---
+interface Props {
+  text: string;
+  tag?: string;
+  className?: string;
+  delay?: number;
+  bySpace?: boolean | null;
+}
+
+const { text, tag = "span", className, delay = 0, bySpace = null } = Astro.props;
+
+const gapClass = 'class="inline-block w-[0.35em]" aria-hidden="true"';
+
+const randomDelay = Number((Math.random() * 0.2).toFixed(2));
+const distance = (0.6 + Math.random() * 0.9).toFixed(2);
+const duration = (0.5 + Math.random() * 0.5).toFixed(2);
+const directions = ["up", "left", "right"];
+const direction = directions[Math.floor(Math.random() * directions.length)];
+
+function span(part: string, i: number): string {
+  const animDelay = (delay + randomDelay + i * 0.04).toFixed(2);
+  return `<span class="split-char inline-block" style="--split-dist:${distance}em;animation:split-in-${direction} ${duration}s cubic-bezier(.22,1,.36,1) backwards;animation-delay:${animDelay}s">${part}</span>`;
+}
+
+function splitHtml(text: string, bySpace: boolean | null): string {
+  if (bySpace != null) {
+    const parts = text.split(" ");
+    return parts.map(span).join(" ");
+  }
+
+  return text
+    .split("")
+    .map((part, i) => (part === " " ? `<span ${gapClass}></span>` : span(part, i)))
+    .join("");
+}
+
+const content = splitHtml(text, bySpace);
+const Tag: any = tag;
+---
+
+<Tag class={className} aria-label={text} role="text" set:html={content} />
+
+<style is:global>
+  .split-char {
+    display: inline-block;
+    will-change: transform, opacity;
+  }
+
+  @keyframes split-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(var(--split-dist, 1.1em));
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes split-in-left {
+    from {
+      opacity: 0;
+      transform: translateX(calc(var(--split-dist, 1.1em) * -1));
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @keyframes split-in-right {
+    from {
+      opacity: 0;
+      transform: translateX(var(--split-dist, 1.1em));
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .split-char {
+      animation: none !important;
+      opacity: 1;
+    }
+  }
+</style>
