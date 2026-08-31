@@ -13,17 +13,32 @@ const { title, metaDescription } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700|Noto+Sans:300,400,500,600,700,800|PT+Mono:300,400,500,600,700"
-      rel="stylesheet"
-    />
     <title>{title}</title>
     <meta name="description" content={metaDescription} />
     <meta name="generator" content={Astro.generator} />
     <link rel="canonical" href="https://www.creative-tim.com/astro/" />
   </head>
-  <body class="overflow-x-hidden">
-    <slot />
+  <body class="overflow-x-hidden" style="background-color:var(--swiss-meeple)">
+    <div class="figures-layer" aria-hidden="true">
+      <svg class="fig figures-building figures-building--one" viewBox="0 0 100 100">
+        <rect x="20" y="0" width="60" height="100" />
+      </svg>
+      <svg class="fig figures-building figures-building--two" viewBox="0 0 100 100">
+        <rect x="20" y="0" width="60" height="100" />
+      </svg>
+      <svg class="fig figures-building figures-building--three"  >
+        <rect x="20" y="0" width="600" height="1000" />
+      </svg>
+      <svg class="fig figures-building figures-building--four" viewBox="0 0 100 100">
+        <rect x="20" y="0" width="60" height="100" />
+      </svg>
+      <svg class="fig figures-building figures-building--five" viewBox="0 0 100 100">
+        <rect x="20" y="0" width="60" height="100" />
+      </svg>
+    </div>
+    <div class="page-content">
+      <slot />
+    </div>
   </body>
   <script
     src="https://kit.fontawesome.com/349ee9c857.js"
@@ -31,8 +46,83 @@ const { title, metaDescription } = Astro.props;
   ></script>
 </html>
 <style is:global>
-  code {
-    font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
-      DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+  :root {
+    --swiss-meeple: #1c0118;
+    --swiss-lime: #6bd425;
+    --swiss-plum: #370926;
+    --swiss-olive: #618b25;
+    --font-swiss: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+  html,
+  body {
+    font-family: var(--font-swiss);
+  }
+
+  .figures-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .page-content {
+    position: relative;
+    z-index: 1;
+  }
+
+  .fig {
+    position: absolute;
+    fill: var(--swiss-olive);
+  }
+
+  .figures-building {
+    position: absolute;
+    bottom: -8vmin;
+    width: 14vmin;
+    height: 46vmin;
+    opacity: 0.16;
+    animation: figures-rise 14s ease-in-out infinite;
+  }
+
+  .figures-building--one {
+    left: 4%;
+  }
+
+  .figures-building--two {
+    left: 22%;
+    height: 38vmin;
+    opacity: 0.1;
+    animation-delay: -3s;
+  }
+
+  .figures-building--three {
+    left: 40%;
+    height: 52vmin;
+    animation-delay: -6s;
+  }
+
+  .figures-building--four {
+    left: 58%;
+    height: 34vmin;
+    opacity: 0.12;
+    animation-delay: -9s;
+  }
+
+  .figures-building--five {
+    left: 76%;
+    height: 44vmin;
+    animation-delay: -11s;
+  }
+
+  @keyframes figures-rise {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-14vmin);
+    }
   }
 </style>

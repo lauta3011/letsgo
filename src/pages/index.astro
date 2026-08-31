@@ -1,24 +1,24 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import HeaderPresentation from "../components/presentation/header"
-import LogosPresentation from "../components/presentation/logos"
-import LanguagePresentation from "../components/presentation/language"
-import FrameworksPresentation from "../components/presentation/framework"
-import DatabasePresentation from "../components/presentation/databases"
-import GithubPresentation from "../components/presentation/github"
-import FooterPresentation from "../components/presentation/footer"
-import GetInTouch from "../components/presentation/contact"
+import Hero from "../components/swiss/hero/hero"
+import Logos from "../components/swiss/logos/logos"
+// import LanguagePresentation from "../components/presentation/language"
+// import FrameworksPresentation from "../components/presentation/framework"
+// import DatabasePresentation from "../components/presentation/databases"
+// import GithubPresentation from "../components/presentation/github"
+// import FooterPresentation from "../components/presentation/footer"
+// import GetInTouch from "../components/presentation/contact"
 ---
 
 <Layout title="Lautaro Rodriguez">
 	<main>
-    <HeaderPresentation client:only="react" />
-    <LogosPresentation client:only="react" />
-    <LanguagePresentation client:only="react" />
-    <FrameworksPresentation client:only="react" />
-    <DatabasePresentation client:only="react" />
-    <GithubPresentation client:only="react" /> 
-    <GetInTouch client:only="react" />
-    <FooterPresentation client:only="react" />
+    <Hero client:only="react" />
+    <Logos client:only="react" />
+    <!-- <LanguagePresentation client:only="react" /> -->
+    <!-- <FrameworksPresentation client:only="react" /> -->
+    <!-- <DatabasePresentation client:only="react" /> -->
+    <!-- <GithubPresentation client:only="react" /> -->
+    <!-- <GetInTouch client:only="react" /> -->
+    <!-- <FooterPresentation client:only="react" /> -->
   </main>
 </Layout>
