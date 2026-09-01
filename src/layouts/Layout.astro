@@ -16,6 +16,12 @@ const { title, metaDescription } = Astro.props;
     <title>{title}</title>
     <meta name="description" content={metaDescription} />
     <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
+    />
   </head>
   <body class="overflow-x-hidden" style="background-color:var(--swiss-meeple)">
     <div class="figures-layer" aria-hidden="true">
@@ -48,7 +54,7 @@ const { title, metaDescription } = Astro.props;
     --swiss-lime: #6bd425;
     --swiss-plum: #370926;
     --swiss-olive: #618b25;
-    --font-swiss: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    --font-swiss: "Michroma", sans-serif;
   }
 
   html,

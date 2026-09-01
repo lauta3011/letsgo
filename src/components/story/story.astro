@@ -1,0 +1,38 @@
+---
+import SplitText from "../../utils/SplitText.astro";
+import SlideIn from "../slide-in/slide-in.astro";
+
+---
+
+<section class="min-h-screen relative w-full text-swiss-lime">
+
+  <SlideIn>
+    <div class="grid grid-cols-6 gap-4 px-4 md:px-8 my-12 md:my-28">
+      <div class="col-span-6 md:col-start-2 md:col-span-4 space-y-4 text-2xl font-light leading-relaxed text-center">
+        <p>6+ years turning ideas into shipped products.</p>
+        <p>Contributed on multiple projects of different industries.</p>
+        <p>Always take ownership.</p>
+      </div>
+    </div>
+  </SlideIn>
+
+  <div class="grid grid-cols-6 text-lg w-full px-4 md:px-8 my-72 gap-4">
+    <div class="max-w-prose col-span-6 md:col-span-4 space-y-4 font-light leading-relaxed my-12 md:my-0">
+      <p>The fundation for a strong knowdledge cannot be lost from the context, and maintaining that foundation is key.</p>
+      <p>That skill can only be achieved by experience, knowdledge and reason.</p>
+    </div>
+    
+    <div class="max-w-prose col-span-6  md:col-span-2 content-center space-y-4 font-light leading-relaxed my-12 md:my-0">
+        <SplitText text="SPEC" tag="h1" className="text-2xl md:text-4xl font-bold flex w-full justify-between" />
+        <SplitText text="DRIVEN" tag="h1" className="text-2xl md:text-4xl font-bold flex w-full justify-between" />
+    </div>
+  </div>
+
+  <div class="grid grid-cols-4 px-4 md:px-8 my-72 w-full gap-4">
+    <div class="col-start-1 col-span-4 space-y-4 font-light leading-relaxed my-12 md:my-0">
+        <p>Living the transition from developer into something else, not just a coder with critic thinking. A brainer capable of transimt those ideas out.</p>
+      </div>
+    </div>
+  
+
+</section>
