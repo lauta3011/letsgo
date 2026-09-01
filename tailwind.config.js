@@ -11,7 +11,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        sans: ["Helvetica Neue", "Helvetica", "Arial", "sans-serif"],
+        sans: ["Michroma", "sans-serif"],
       },
     },
   },
