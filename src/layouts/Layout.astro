@@ -1,4 +1,6 @@
 ---
+import Figures from "../components/figures/figures.astro";
+
 export interface Props {
   title: string;
   metaDescription?: string;
@@ -24,25 +26,7 @@ const { title, metaDescription } = Astro.props;
     />
   </head>
   <body class="overflow-x-hidden" style="background-color:var(--swiss-meeple)">
-    <div class="figures-layer" aria-hidden="true">
-      <div class="figures-grid">
-        <svg class="fig figures-building figures-building--one" viewBox="0 0 100 100">
-          <rect x="20" y="0" width="60" height="300" />
-        </svg>
-        <svg class="fig figures-building figures-building--two" viewBox="0 0 100 100">
-          <rect x="20" y="0" width="60" height="600" />
-        </svg>
-        <svg class="fig figures-building figures-building--three" >
-          <rect x="20" y="0" width="600" height="1000" />
-        </svg>
-        <svg class="fig figures-building figures-building--four" viewBox="0 0 100 100">
-          <rect x="20" y="0" width="60" height="800" />
-        </svg>
-        <svg class="fig figures-building figures-building--five" viewBox="0 0 100 100">
-          <rect x="20" y="0" width="60" height="600" />
-        </svg>
-      </div>
-    </div>
+    <Figures />
     <div class="page-content">
       <slot />
     </div>
@@ -62,68 +46,8 @@ const { title, metaDescription } = Astro.props;
     font-family: var(--font-swiss);
   }
 
-  .figures-layer {
-    position: fixed;
-    inset: 0;
-    z-index: 0;
-    pointer-events: none;
-    overflow: hidden;
-  }
-
-  .figures-grid {
-    position: absolute;
-    inset: 0;
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    align-items: end;
-  }
-
   .page-content {
     position: relative;
     z-index: 1;
-  }
-
-  .fig {
-    fill: var(--swiss-olive);
-  }
-
-  .figures-building {
-    justify-self: center;
-    width: 14vmin;
-    height: 46vmin;
-    opacity: 0.16;
-    animation: figures-rise 14s ease-in-out infinite;
-  }
-
-  .figures-building--two {
-    height: 38vmin;
-    opacity: 0.1;
-    animation-delay: -3s;
-  }
-
-  .figures-building--three {
-    height: 52vmin;
-    animation-delay: -6s;
-  }
-
-  .figures-building--four {
-    height: 34vmin;
-    opacity: 0.12;
-    animation-delay: -9s;
-  }
-
-  .figures-building--five {
-    height: 44vmin;
-    animation-delay: -11s;
-  }
-
-  @keyframes figures-rise {
-    0%,
-    100% {
-      transform: translateY(0);
-    }
-    50% {
-      transform: translateY(-14vmin);
-    }
   }
 </style>

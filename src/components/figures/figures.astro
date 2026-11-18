@@ -1,0 +1,94 @@
+---
+const FIGURE_COUNT = 12;
+const WAVE_DURATION = 14;
+
+const PROFILES = [
+  { height: 46, opacity: 0.16 },
+  { height: 38, opacity: 0.1 },
+  { height: 52, opacity: 0.16 },
+  { height: 34, opacity: 0.12 },
+  { height: 44, opacity: 0.16 },
+];
+
+const figures = Array.from({ length: FIGURE_COUNT }, (_, index) => {
+  const profile = PROFILES[index % PROFILES.length];
+  return { index, height: profile.height, opacity: profile.opacity };
+});
+---
+
+<div class="figures-layer" aria-hidden="true">
+  <div
+    class="figures-track"
+    style={`--fig-total: ${FIGURE_COUNT}; --wave-duration: ${WAVE_DURATION}s`}
+  >
+    {
+      figures.map(({ index, height, opacity }) => (
+        <svg
+          class="fig figures-building"
+          viewBox="0 0 100 100"
+          preserveAspectRatio="none"
+          style={`--fig-i: ${index}; --fig-h: ${height}vmin; --fig-o: ${opacity}`}
+        >
+          <rect x="0" y="0" width="100" height="100" />
+        </svg>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .figures-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .figures-track {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    --fig-count: var(--fig-total);
+  }
+
+  .fig {
+    fill: var(--swiss-olive);
+  }
+
+  .figures-building {
+    flex: 0 0 calc(100% / var(--fig-count) * 0.55);
+    height: var(--fig-h);
+    opacity: var(--fig-o);
+    animation: figures-rise var(--wave-duration) ease-in-out infinite;
+    animation-delay: calc(-1 * var(--fig-i) / var(--fig-total) * var(--wave-duration));
+  }
+
+  @keyframes figures-rise {
+    0%,
+    100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(calc(var(--fig-h) * -0.3));
+    }
+  }
+
+  @media (max-width: 640px) {
+    .figures-track {
+      --fig-count: 6;
+    }
+
+    .figures-building:nth-child(2n) {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .figures-building {
+      animation: none;
+    }
+  }
+</style>
