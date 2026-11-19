@@ -1,0 +1,28 @@
+name = "chatty-chat"
+main = "worker/index.js"
+compatibility_date = "2025-01-01"
+
+# Bundle my-cv.md as a plain-text module so the CV stays the single source of truth.
+[[rules]]
+type = "Text"
+globs = ["**/*.md"]
+fallthrough = true
+
+# Free with no per-call charge: approximate per-IP throttle, enforced per Cloudflare location.
+# Period must be 10 or 60 seconds.
+[[ratelimits]]
+name = "CHAT_RATE_LIMITER"
+namespace_id = "2001"
+simple = { limit = 5, period = 60 }
+
+# Free Durable Objects tier: exact global daily ceiling, so rotating IPs cannot drain the model quota.
+[[durable_objects.bindings]]
+name = "DAILY_BUDGET"
+class_name = "DailyBudget"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["DailyBudget"]
+
+[vars]
+DAILY_CHAT_LIMIT = "200"
