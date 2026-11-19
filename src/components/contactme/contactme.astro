@@ -3,9 +3,9 @@ const LINKEDIN_URL = "https://www.linkedin.com/in/lautaro-rodriguez-juarez-3203a
 const CONTACT_EMAIL = "lauta_3011@hotmail.com";
 ---
 
-<section class="contactme relative w-full text-swiss-lime my-12 md:my-28">
+<section class="flex-column flex contactme relative w-full text-swiss-lime my-12 md:my-28">
   <div class="w-full px-4 md:px-8">
-    <div class="space-y-6 font-light leading-relaxed text-center md:text-right">
+    <div class="space-y-6 font-light leading-relaxed text-center">
       <button
         class="contactme__trigger border border-swiss-plum px-6 py-3 text-base font-bold uppercase tracking-widest transition-colors duration-300 hover:bg-swiss-lime hover:text-swiss-meeple"
         type="button"
@@ -18,26 +18,29 @@ const CONTACT_EMAIL = "lauta_3011@hotmail.com";
 
       <div class="contactme__form-wrap" id="contactme-form">
         <div class="contactme__form-inner w-full space-y-6">
-          <div>
+
+
+          <form
+            action={`mailto:${CONTACT_EMAIL}`}
+            method="post"
+            enctype="text/plain"
+            class="contactme__email-form w-full space-y-4 text-start"
+          >
+          <div class="block">
+            <label class="text-xs uppercase tracking-widest" for="contactme-message">
+              Get in touch with me, write me an email or             
+            </label>
+
             <a
-              class="contactme__linkedin inline-block text-lg font-bold underline underline-offset-4 transition-colors duration-300 hover:bg-swiss-lime hover:text-swiss-meeple px-1"
+              class="contactme__linkedin inline-block text-lg underline underline-offset-4 transition-colors duration-300 hover:bg-swiss-lime hover:text-swiss-meeple px-1"
               href={LINKEDIN_URL}
               target="_blank"
               rel="noopener noreferrer"
             >
               Find me on LinkedIn
             </a>
-          </div>
 
-          <form
-            action={`mailto:${CONTACT_EMAIL}`}
-            method="post"
-            enctype="text/plain"
-            class="w-full text-center space-y-4"
-          >
-            <label class="block text-xs uppercase tracking-widest" for="contactme-message">
-              Get in touch with me, write me an email.
-            </label>
+          </div>
             <textarea
               id="contactme-message"
               name="message"
@@ -76,6 +79,20 @@ const CONTACT_EMAIL = "lauta_3011@hotmail.com";
     trigger.addEventListener("click", () => {
       const open = formWrap.classList.toggle("is-open");
       trigger.setAttribute("aria-expanded", String(open));
+    });
+  }
+
+  const emailForm = document.querySelector(".contactme__email-form");
+  const messageField = document.querySelector("#contactme-message");
+
+  if (emailForm instanceof HTMLFormElement && messageField instanceof HTMLTextAreaElement) {
+    emailForm.addEventListener("submit", (event) => {
+      event.preventDefault();
+
+      const action = emailForm.getAttribute("action");
+      if (!action) return;
+
+      window.location.href = `${action}?body=${encodeURIComponent(messageField.value)}`;
     });
   }
 </script>
